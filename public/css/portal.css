@@ -1,0 +1,79 @@
+#menu{
+    position: relative;
+}
+
+#req{
+    position: absolute;
+    right: 110px;
+}
+
+#req li img{
+    padding: 10px 0 15px 0;
+}
+
+.container{
+    position: relative;
+}
+#login{
+    background: #444286;
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 13%;
+    right: 12.1%;
+    width: 250px;
+    padding: 20px;
+    z-index: 2000000;
+}
+label{
+    margin-top: 10px;
+    font-family: Lucida Calligraphy;
+    font-size: 20px;
+}
+
+input{
+
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #c4b8a6;
+    -webkit-transition: border 0.4s linear;
+}
+
+input:focus{
+    border: 1px solid indigo;
+    border-radius: 5px;
+}
+
+#boton{
+    font-family: Century Gothic;
+    font-size: 15px;
+    width: 100px;
+    margin-top: 20px;
+    margin-left: 60px;
+
+    background: -webkit-radila-gradient(center, circle ,green 0%,rgba(122,255,200,0.9) 150%);
+}
+
+
+ #services, #team, #contact{
+    padding: 0;
+}
+#about{
+    padding: 10px;
+}
+
+#piePrincipal{
+    padding: 8px;
+}
+@media screen and (max-width: 1122px){
+    #login{
+        top:13%;
+    }
+
+    #logo{
+       position: absolute;
+       left: 0;
+       padding-right: 30px;
+    }
+}

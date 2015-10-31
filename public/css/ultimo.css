@@ -1,0 +1,70 @@
+.fixedmenutop{
+    z-index: 9999;position: fixed;top: 0;padding: 0;
+    margin:0; left:170px;
+  }
+</style>
+<style>
+.imagen {
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    -webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+    margin-bottom:20px;
+    margin-top: 10px;
+
+}
+
+img:hover {
+  filter: none; /* IE6-9 */
+  -webkit-filter: grayscale(0); /* Google Chrome, Safari 6+ & Opera 15+ */
+
+}
+.fixedmenutop{
+      z-index: 9999;position: fixed;top: 0;padding: 0;
+      margin:0; left:170px;
+    }
+
+
+    #login{
+        background: #7F0000;
+        display: none;
+        position: fixed;
+        right: 0;
+        top: 25.5%;
+        right: 12.5%;
+        width: 250px;
+        padding: 20px;
+        z-index: 2000000;
+        border-radius: 5px;
+
+    }
+    #login label{
+        margin-top: 10px;
+        font-family: Lucida Calligraphy;
+        font-size: 20px;
+        color: white;
+    }
+
+    #login input, #bd{
+
+        height: 30px;
+        width: 200px;
+        border-radius: 5px !important;
+        border: 1px solid #c4b8a6;
+        -webkit-transition: border 0.4s linear;
+    }
+
+    #login input:focus{
+        border: 1px solid indigo;
+        border-radius: 5px;
+    }
+
+    #btnLogin{
+        font-family: Century Gothic;
+        font-size: 15px;
+        width: 100px;
+        margin-top: 20px !important;
+
+        background: -webkit-radila-gradient(center, circle ,green 0%,rgba(122,255,200,0.9) 150%);
+    }

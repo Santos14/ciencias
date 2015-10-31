@@ -1,0 +1,72 @@
+.navbar .navbar-inner .navbar-header .navbar-account .account-area .login-area section h2 span{
+            padding: 8px 10px;
+            line-height: 0px;
+        }
+
+        .navbar .navbar-inner .navbar-header .navbar-account .account-area .login-area section h2 span:hover{
+            background: #2DC3E8;
+        }
+
+		.contenido{
+			width: 78%;
+			float: right;
+			padding: 20px;
+		}
+
+		#form{
+			width: 100%;
+			margin: 0 auto;
+
+		}
+
+
+
+		.botones{
+			width: 100%;
+			margin: 20px auto;
+		}
+
+        table{
+            width: 100%;
+            margin: 40px auto 0 auto;
+            text-align: center;
+        }
+
+        #DataTables_Table_0{
+        	text-align: center !important;
+        }
+
+		/*input{
+			width: 250px;
+			height: 30px;
+			border-radius: 5px !important;
+		}*/
+
+		label{
+			font-size: 15px;
+		}
+
+		#btn, #btn2, #btn3{
+			width: 100px;
+			height: 30px;
+			padding: 5px;
+            margin-top: 10px;
+
+
+		}
+		#registrar{
+
+			margin: 70px auto 0 auto;
+			display: none;
+		}
+
+		#nuevo{
+			position: absolute;
+			left: 0;
+			top: 50px;
+
+		}
+
+		#form h3{
+			margin-bottom: 30px !important;
+		}

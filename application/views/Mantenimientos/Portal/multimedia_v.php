@@ -291,33 +291,6 @@ $(document).ready(function(){
 </div>
  <!-- Jquery Library Call -->
 <?php include("includes/js.inc"); ?>
-<script>
 
-    jQuery("document").ready(function(){
-
-
-    $(window).scroll(function(){
-      if($(this).scrollTop() > 145){
-        $("#menubebe").addClass("fixedmenutop");
-        $("#logofixed").css("display","block");
-      }else{
-        $("#menubebe").removeClass("fixedmenutop");
-        $("#logofixed").css("display","none");
-
-      }
-    });
-  });
-
-
-
-   $(document).ready(function(){
-              $("#candado").click(function(){
-                 $("#login").slideToggle("fast");
-              });
-
-
-
-            });
-</script>
 </body>
 </html>

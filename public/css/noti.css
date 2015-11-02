@@ -1,21 +1,10 @@
-/*
-Ref:
-Thanks to:
-http://www.jqueryscript.net/layout/Simple-jQuery-Plugin-To-Create-Pinterest-Style-Grid-Layout-Pinterest-Grid.html
-*/
-
-body {
- background-color:#eee;   
-}    
-
 #pinBoot {
   position: relative;
   max-width: 100%;
   width: 100%;
 }
 img {
-  width: 100%;
-  max-width: 100%;
+  
   height: auto;
 }
 .white-panel {

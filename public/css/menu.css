@@ -7,32 +7,38 @@
             background: #2DC3E8;
         }
 
-		.contenido{
-			width: 78%;
-			float: right;
-			padding: 20px;
-		}
 
 		#form{
-			width: 100%;
+			width: 90%;
 			margin: 0 auto;
 
 		}
 
 
+		.contenido{
+
+			width: 94% !important;
+			margin: 0 0.7% 0 3%;
+		}
+
+
+
+
 
 		.botones{
 			width: 100%;
-			margin: 20px auto;
+
+			margin: 30px auto;
 		}
 
         table{
             width: 100%;
             margin: 40px auto 0 auto;
-            text-align: center;
+            text-align: center !important;
         }
 
         #DataTables_Table_0{
+        	width: 99% !important;
         	text-align: center !important;
         }
 
@@ -51,7 +57,7 @@
 			height: 30px;
 			padding: 5px;
             margin-top: 10px;
-
+			border-radius: 5px;
 
 		}
 		#registrar{

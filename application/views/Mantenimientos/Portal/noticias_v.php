@@ -11,10 +11,16 @@
 <!-- Mobile Specific Metas
   ================================================== -->
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
 <meta name="format-detection" content="telephone=no">
 <!-- CSS
+
   ================================================== -->
   <?php include("includes/css.inc"); ?>
+
+
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/noti.css"/>
+
 <!-- SCRIPTS
   ================================================== -->
 <script src="js/modernizr.js"></script><!-- Modernizr -->
@@ -179,12 +185,7 @@ $(document).ready(function(){
 
 
   </div>
-  <p>
-    <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fbootsnipp.com%2Fiframe%2FZkk0O" target="_blank"><small>HTML</small><sup>5</sup></a>
-    <br>
-    <br>
 
-  </p>
 
 </div>
 </div>
@@ -214,34 +215,7 @@ $(document).ready(function(){
 </div>
  <!-- Jquery Library Call -->
 <?php include("includes/js.inc"); ?>
-<script>
 
-    jQuery("document").ready(function(){
-
-
-    $(window).scroll(function(){
-      if($(this).scrollTop() > 145){
-        $("#menubebe").addClass("fixedmenutop");
-        $("#logofixed").css("display","block");
-      }else{
-        $("#menubebe").removeClass("fixedmenutop");
-        $("#logofixed").css("display","none");
-
-      }
-    });
-  });
-
-
-
-   $(document).ready(function(){
-              $("#candado").click(function(){
-                 $("#login").slideToggle("fast");
-              });
-
-
-
-            });
-</script>
 <script>
   $(function() {
     $( "#datepicker" ).datepicker();

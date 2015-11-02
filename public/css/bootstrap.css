@@ -1309,7 +1309,7 @@ pre code {
   .col-md-6,
   .col-md-7,
   .col-md-8,
-/*  .col-md-9,*/
+  .col-md-9,
   .col-md-10,
   .col-md-11,
   .col-md-12 {
@@ -1326,12 +1326,7 @@ pre code {
   }
   .col-md-9 {
     width: 75%;
-    margin: 0 auto;
-
   }
-
-
-
   .col-md-8 {
     width: 66.66666666666666%;
   }
@@ -1650,14 +1645,13 @@ table {
   background-color: transparent;
 }
 
-/*th {
+th {
   text-align: left;
-}*/
+}
 
 .table {
   width: 100%;
   margin-bottom: 20px;
-  margin-top: 30px;
 }
 
 .table > thead > tr > th,
@@ -1885,8 +1879,6 @@ label {
   display: inline-block;
   margin-bottom: 5px;
   font-weight: bold;
-  font-family: 'Open Sans','Segoe UI';
-  font-weight: normal;
 }
 
 input[type="search"] {

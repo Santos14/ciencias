@@ -219,7 +219,7 @@ $(document).ready(function(){
               <div class="sidebar-widget-title">
                 <h3>EVENTOS</h3>
               </div>
-              Calendario: <div id="datepicker"></div>
+             <div id="datepicker"></div>
             <!-- Upcoming Events Widget -->
             <div class="widget sidebar-widget">
               <div class="sidebar-widget-title">
@@ -266,30 +266,6 @@ $(document).ready(function(){
 <?php include("includes/js.inc"); ?>
 <script>
 
-    jQuery("document").ready(function(){
-
-
-    $(window).scroll(function(){
-      if($(this).scrollTop() > 145){
-        $("#menubebe").addClass("fixedmenutop");
-        $("#logofixed").css("display","block");
-      }else{
-        $("#menubebe").removeClass("fixedmenutop");
-        $("#logofixed").css("display","none");
-
-      }
-    });
-  });
-   $(document).ready(function(){
-              $("#candado").click(function(){
-                 $("#login").slideToggle("fast");
-              });
-            });
-</script>
-<script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
   </script>
 </body>
 </html>

@@ -14,7 +14,7 @@ class Movimiento_c extends CI_Controller {
 		$datos = $this->Movimiento_m->todos();
 
 
-		$this->load->view('Movimiento/movimiento_v',compact("datos"));
+		$this->load->view('Pensiones/Movimiento/movimiento_v',compact("datos"));
 	}
 
 
@@ -25,7 +25,7 @@ class Movimiento_c extends CI_Controller {
 
 			$titulo = "Registrar Movimiento";
 			$concepto = $this->Movimiento_m->traerConceptos();
-			$this->load->view("Movimiento/agregar_v.php",compact("concepto","titulo"));
+			$this->load->view("Pensiones/Movimiento/agregar_v.php",compact("concepto","titulo"));
 
 	}
 

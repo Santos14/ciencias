@@ -11,7 +11,9 @@ class Vacuna_c extends CI_Controller {
 	public function index()
 	{
 		$datos = $this->Vacuna_m->todos();
-		$this->load->view('Mantenimientos/Vacuna/vacuna_v',compact("datos"));
+		$hijo = "Vacuna";
+		$padre = "Mantenimientos";
+		$this->load->view('Mantenimientos/Vacuna/vacuna_v',compact("datos","padre","hijo"));
 	}
 
 	public function nuevo()
@@ -58,8 +60,9 @@ class Vacuna_c extends CI_Controller {
 		{
 			$titulo = "Registrar Vacuna";
 			$datos = "";
-
-			$this->load->view("Mantenimientos/Vacuna/agregar_v.php",compact("datos","titulo"));
+			$hijo = "Vacuna";
+		$padre = "Mantenimientos";
+			$this->load->view("Mantenimientos/Vacuna/agregar_v.php",compact("datos","titulo","padre","hijo"));
 		}
 	}
 
@@ -69,7 +72,9 @@ class Vacuna_c extends CI_Controller {
 
 		$datos = $this->Vacuna_m->traeruno($id);
 		$titulo = "Modificar Vacuna";
-		$this->load->view("Mantenimientos/Vacuna/agregar_v.php",compact("datos","titulo"));
+		$hijo = "Vacuna";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/Vacuna/agregar_v.php",compact("datos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)

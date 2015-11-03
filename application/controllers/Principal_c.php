@@ -13,10 +13,17 @@
 
 		public function index()
 		{
+			$padre = "";
+			$hijo = "";
 
-			$this->load->view("Mantenimientos/Principal/principal_v");
+			$this->load->view("Mantenimientos/Principal/principal_v",compact("padre","hijo"));
 		}
 
+		public function cerrar()
+		{
+			session_destroy();
+			redirect(base_url()."Portal_c","refresh");
+		}
 
 	}
  ?>

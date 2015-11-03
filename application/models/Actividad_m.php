@@ -10,7 +10,7 @@
 
 		  public function todos()
 		 {
-		 	if($_SESSION["base"] == "oci8")
+		 	if($_SESSION["gestor"] == "oci8")
 		 	{
 		 		$this->db->select('a.idactividad, a.descripcion as "dac", asp.descripcion as "da", a.estado');
 				$this->db->from('actividad "a"');

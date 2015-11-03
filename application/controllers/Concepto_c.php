@@ -13,8 +13,10 @@ class Concepto_c extends CI_Controller {
 
 		$datos = $this->Concepto_m->todos();
 
+		$hijo = "Concepto";
+		$padre = "Mantenimientos";
 
-		$this->load->view('Mantenimientos/Concepto/concepto_v',compact("datos"));
+		$this->load->view('Mantenimientos/Concepto/concepto_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -64,7 +66,9 @@ class Concepto_c extends CI_Controller {
 			$titulo = "Registrar Concepto de Pago";
 			$datos = "";
 			$movimiento = $this->Concepto_m->traerMovimientos();
-			$this->load->view("Mantenimientos/Concepto/agregar_v.php",compact("datos","titulo","movimiento"));
+			$hijo = "Cargo";
+			$padre = "Mantenimientos";
+			$this->load->view("Mantenimientos/Concepto/agregar_v.php",compact("datos","titulo","movimiento","padre","hijo"));
 		}
 	}
 
@@ -74,7 +78,9 @@ class Concepto_c extends CI_Controller {
 		$movimiento = $this->Concepto_m->traerMovimientos();
 		$datos = $this->Concepto_m->traeruno($id);
 		$titulo = "Modificar Concepto de Pago";
-		$this->load->view("Mantenimientos/Concepto/agregar_v.php",compact("datos","titulo","movimiento"));
+		$hijo = "Cargo";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/Concepto/agregar_v.php",compact("datos","titulo","movimiento","padre","hijo"));
 	}
 
 	public function eliminar($id)

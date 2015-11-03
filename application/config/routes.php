@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "portal_c";
+$route['default_controller'] = "Verificar_c";
 $route['404_override'] = '';
 
 

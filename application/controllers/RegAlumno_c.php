@@ -12,9 +12,10 @@ class RegAlumno_c extends CI_Controller {
 	{
 
 		$datos = $this->RegAlumno_m->todos();
+		$hijo = "Alumno";
+		$padre = "Matricula";
 
-
-		$this->load->view('Alumno/Alumno_v',compact("datos"));
+		$this->load->view('Alumno/Alumno_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -69,7 +70,10 @@ class RegAlumno_c extends CI_Controller {
                 $discapacidad=$this->RegAlumno_m->discapacidad();
                 $actividad=$this->RegAlumno_m->actividad();
                 $departamento=$this->RegAlumno_m->departamento();
-			$this->load->view("alumno/agregar_v.php",compact("datos","titulo","sangre","documento","parto","discapacidad","actividad","departamento"));
+                $hijo = "Alumno";
+		$padre = "Matricula";
+
+			$this->load->view("alumno/agregar_v.php",compact("datos","titulo","sangre","documento","parto","discapacidad","actividad","departamento","padre","hijo"));
 		}
 	}
   public function lista(){
@@ -83,7 +87,7 @@ class RegAlumno_c extends CI_Controller {
            }
                  echo $html;
 
-    
+
   }
   public function lista1(){
   	   $departamento=$this->RegAlumno_m->listadistrito($_GET['id1']);
@@ -107,17 +111,20 @@ class RegAlumno_c extends CI_Controller {
                 $discapacidad=$this->RegAlumno_m->discapacidad();
                 $actividad=$this->RegAlumno_m->actividad();
                 $departamento=$this->RegAlumno_m->departamento();
-    
+
 		$datos = $this->RegAlumno_m->traeruno($id);
 		            $provin=$this->RegAlumno_m->provincia($datos->idubigeo);
 		            $depar=$this->RegAlumno_m->departamento1($provin->idprovincia);
 		            $distri=$this->RegAlumno_m->distrito($datos->idubigeo);
 		            $disca=$this->RegAlumno_m->detalle($datos->idalumno);
 		            $actis=$this->RegAlumno_m->detalle1($datos->idalumno);
-		          
-		          
+
+
 		$titulo = "Modificar Alumno";
-		$this->load->view("alumno/agregar_v.php",compact("actis","disca","datos","titulo","sangre","documento","parto","discapacidad","actividad","departamento","provin","depar","distri"));
+		$hijo = "Alumno";
+		$padre = "Matricula";
+
+		$this->load->view("alumno/agregar_v.php",compact("actis","disca","datos","titulo","sangre","documento","parto","discapacidad","actividad","departamento","provin","depar","distri","padre","hijo"));
 	}
 
 	public function eliminar($id)

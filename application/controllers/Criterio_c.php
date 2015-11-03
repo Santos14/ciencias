@@ -13,8 +13,10 @@ class Criterio_c extends CI_Controller {
 
 		$datos = $this->Criterio_m->todos();
 
+		$hijo = "Criterio";
+		$padre = "Mantenimientos";
 
-		$this->load->view('Mantenimientos/Criterio/criterio_v',compact("datos"));
+		$this->load->view('Mantenimientos/Criterio/criterio_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -63,8 +65,10 @@ class Criterio_c extends CI_Controller {
 		{
 			$titulo = "Registrar Criterio de Evaluacion";
 			$datos = "";
+			$hijo = "Criterio";
+			$padre = "Mantenimientos";
 			$asignatura = $this->Criterio_m->traerAsignaturas();
-			$this->load->view("Mantenimientos/Criterio/agregar_v.php",compact("datos","titulo","asignatura"));
+			$this->load->view("Mantenimientos/Criterio/agregar_v.php",compact("datos","titulo","asignatura","padre","hijo"));
 		}
 	}
 
@@ -74,7 +78,9 @@ class Criterio_c extends CI_Controller {
 		$asignatura = $this->Criterio_m->traerAsignaturas();
 		$datos = $this->Criterio_m->traeruno($id);
 		$titulo = "Modificar Criterio de Evaluacion";
-		$this->load->view("Mantenimientos/Criterio/agregar_v.php",compact("datos","titulo","asignatura"));
+		$hijo = "Criterio";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/Criterio/agregar_v.php",compact("datos","titulo","asignatura","padre","hijo"));
 	}
 
 	public function eliminar($id)

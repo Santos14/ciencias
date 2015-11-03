@@ -12,9 +12,10 @@ class TipoD_c extends CI_Controller {
 	{
 
 		$datos = $this->TipoD_m->todos();
+		$hijo = "TipoD";
+		$padre = "Mantenimientos";
 
-
-		$this->load->view('Mantenimientos/TipoD/tipoD_v',compact("datos"));
+		$this->load->view('Mantenimientos/TipoD/tipoD_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -63,8 +64,9 @@ class TipoD_c extends CI_Controller {
 		{
 			$titulo = "Registrar Tipo De Discapacidad";
 			$datos = "";
-
-			$this->load->view("Mantenimientos/TipoD/agregar_v.php",compact("datos","titulo"));
+			$hijo = "TipoD";
+		$padre = "Mantenimientos";
+			$this->load->view("Mantenimientos/TipoD/agregar_v.php",compact("datos","titulo","padre","hijo"));
 		}
 	}
 
@@ -74,8 +76,9 @@ class TipoD_c extends CI_Controller {
 
 		$datos = $this->TipoD_m->traeruno($id);
 		$titulo = "Modificar Tipo De Discapacidad";
-
-		$this->load->view("Mantenimientos/TipoD/agregar_v.php",compact("datos","titulo"));
+		$hijo = "TipoD";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/TipoD/agregar_v.php",compact("datos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)

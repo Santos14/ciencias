@@ -12,9 +12,10 @@ class Turno_c extends CI_Controller {
     {
 
         $datos = $this->Turno_m->todos();
+        $hijo = "Turno";
+        $padre = "Mantenimientos";
 
-
-        $this->load->view('Mantenimientos/Turno/turno_v',compact("datos"));
+        $this->load->view('Mantenimientos/Turno/turno_v',compact("datos","padre","hijo"));
     }
 
 
@@ -63,8 +64,10 @@ class Turno_c extends CI_Controller {
         {
             $titulo = "Registrar Turno";
             $datos = "";
+              $hijo = "Turno";
+        $padre = "Mantenimientos";
 
-            $this->load->view("Mantenimientos/Turno/agregar_v.php",compact("datos","titulo"));
+            $this->load->view("Mantenimientos/Turno/agregar_v.php",compact("datos","titulo","padre","hijo"));
         }
     }
 
@@ -74,8 +77,10 @@ class Turno_c extends CI_Controller {
 
         $datos = $this->Turno_m->traeruno($id);
         $titulo = "Modificar Turno";
+          $hijo = "Turno";
+        $padre = "Mantenimientos";
 
-        $this->load->view("Mantenimientos/Turno/agregar_v.php",compact("datos","titulo"));
+        $this->load->view("Mantenimientos/Turno/agregar_v.php",compact("datos","titulo","padre","hijo"));
     }
 
     public function eliminar($id)

@@ -46,42 +46,44 @@ session_start();
 | the active record class
 */
 
-// @$ini_array = parse_ini_file("config.ini");
-//print_r($ini_array);
+@$ini_array = parse_ini_file("config.ini");
 
-// $host = $ini_array["host"];
+//print_r($ini_array);
+//exit();
+
+$host = $ini_array["host"];
 //print $host;exit();
 
-// if(empty($host)){
-// 	 header('Location:'.base_url());
-	 /*echo '<script>
-                alert("Debe llenar los parametros de la base de datos");
-                window.location="' . base_url() . '";
-            </script>';
-*/
-// 	$host = "";
-// 	$username = "";
-// 	$password = "";
-// 	$bd = "";
-// 	$driver = "";
-// }else{
+if(empty($host)){
+	 // header('Location:'.base_url());
+	 // echo '<script>
+  //               alert("Debe llenar los parametros de la base de datos");
+  //               window.location="'.base_url().'";
+  //           </script>';
 
-// 	$host = $ini_array["host"];
-// 	$username = $ini_array["usuario"];
-// 	$password = $ini_array["password"];
-// 	$bd = $ini_array["basedatos"];
-// 	$driver = $ini_array["driver"];
-// }
+ 	$host = "";
+ 	$username = "";
+ 	$password = "";
+ 	$bd = "";
+ 	$driver = "";
+ }else{
+
+ 	$host = $ini_array["host"];
+ 	$username = $ini_array["usuario"];
+ 	$password = $ini_array["password"];
+ 	$bd = $ini_array["basedatos"];
+ 	$driver = $ini_array["driver"];
+ }
 
 
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'ciencias';
-$db['default']['dbdriver'] = 'mysql';
+$db['default']['hostname'] = $host;
+$db['default']['username'] = $username;
+$db['default']['password'] = $password;
+$db['default']['database'] = $bd;
+$db['default']['dbdriver'] = $driver;
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = FALSE;
@@ -93,7 +95,24 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
-$_SESSION["base"] = $db['default']['dbdriver'];
+ switch ($driver) {
+	case 'oci8':
+		$_SESSION["gestor"] = "Oracle";
+		break;
+
+	case 'mysql':
+		$_SESSION["gestor"] = "Mysql";
+		break;
+
+	case 'postgre':
+		$_SESSION["gestor"] = "Postgres";
+		break;
+
+	case 'mssql':
+		$_SESSION["gestor"] = "Sql Server";
+		break;
+	}
+
 
 // $db['default']['hostname'] = 'localhost';
 // $db['default']['username'] = 'ciencias';

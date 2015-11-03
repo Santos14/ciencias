@@ -14,8 +14,10 @@ class Caja_c extends CI_Controller {
 		$datos = $this->Caja_m->todos();
 		$saldo = $this->Caja_m->saldo();
 
+		$hijo = "Caja";
+		$padre = "Pensiones";
 
-		$this->load->view('Pensiones/Caja/caja_v',compact("datos","saldo"));
+		$this->load->view('Pensiones/Caja/caja_v',compact("datos","saldo","padre","hijo"));
 	}
 
 	public function reaperturar()
@@ -51,6 +53,7 @@ class Caja_c extends CI_Controller {
 						alert("ERROR AL CERRAR CAJA");
 					</script>';
 		}
+
 		redirect(base_url()."Caja_c","refresh",compact("datos"));
 
 	}

@@ -58,21 +58,21 @@ class CI_Controller {
 		return self::$instance;
 	}
 
-	// public function Select($p) {
- //        $this->load->model('Principal_m');
- //        $this->table = $p['table'];
- //        $data = array();
+	public function Select($p) {
+        $this->load->model('Principal_m');
+        $this->table = $p['table'];
+        $data = array();
 
- //        $data['rows'] = $this->Principal_m->getList();
- //        $data['name'] = $p['name'];
- //        $data['class'] = $p['class'];
- //        $data['id'] = $p['id'];
- //        $data['code'] = $p['code'];
- //        $data['disabled'] = $p['disabled'];
- //        $data['value'] = $p['value'];
- //        $data['option'] = $p['option'];
- //        return $this->load->view('_Select', $data, true);
- //    }
+        $data['rows'] = $this->Principal_m->getList();
+        $data['name'] = $p['name'];
+        $data['class'] = $p['class'];
+        $data['id'] = $p['id'];
+        $data['code'] = $p['code'];
+        // $data['disabled'] = $p['disabled'];
+        $data['value'] = $p['value'];
+        $data['option'] = $p['option'];
+        return $this->load->view('_Select', $data, true);
+    }
 
 }
 // END Controller class

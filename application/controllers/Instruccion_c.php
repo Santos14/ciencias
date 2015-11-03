@@ -12,9 +12,10 @@ class Instruccion_c extends CI_Controller {
 	{
 
 		$datos = $this->Instruccion_m->todos();
+		$hijo = "Instruccion";
+		$padre = "Mantenimientos";
 
-
-		$this->load->view('Mantenimientos/Instruccion/instruccion_v',compact("datos"));
+		$this->load->view('Mantenimientos/Instruccion/instruccion_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -63,8 +64,9 @@ class Instruccion_c extends CI_Controller {
 		{
 			$titulo = "Registrar Grado de Instruccion";
 			$datos = "";
-
-			$this->load->view("Mantenimientos/Instruccion/agregar_v.php",compact("datos","titulo"));
+			$hijo = "Instruccion";
+			$padre = "Mantenimientos";
+			$this->load->view("Mantenimientos/Instruccion/agregar_v.php",compact("datos","titulo","padre","hijo"));
 		}
 	}
 
@@ -74,8 +76,9 @@ class Instruccion_c extends CI_Controller {
 
 		$datos = $this->Instruccion_m->traeruno($id);
 		$titulo = "Modificar Grado de Instruccion";
-
-		$this->load->view("Mantenimientos/Instruccion/agregar_v.php",compact("datos","titulo"));
+		$hijo = "Instruccion";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/Instruccion/agregar_v.php",compact("datos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)

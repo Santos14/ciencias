@@ -13,8 +13,10 @@ class Aspectos_c extends CI_Controller {
 
 		$datos = $this->Aspectos_m->todos();
 
+		$hijo = "Aspectos";
+		$padre = "Mantenimientos";
 
-		$this->load->view('Mantenimientos/Aspectos/aspectos_v',compact("datos"));
+		$this->load->view('Mantenimientos/Aspectos/aspectos_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -63,8 +65,10 @@ class Aspectos_c extends CI_Controller {
 		{
 			$titulo = "Registrar Aspectos";
 			$datos = "";
+			$hijo = "Aspectos";
+			$padre = "Mantenimientos";
 			$nivel = $this->Aspectos_m->traerNivel();
-			$this->load->view("Mantenimientos/Aspectos/agregar_v.php",compact("datos","titulo","nivel"));
+			$this->load->view("Mantenimientos/Aspectos/agregar_v.php",compact("datos","titulo","nivel","padre","hijo"));
 		}
 	}
 
@@ -74,7 +78,9 @@ class Aspectos_c extends CI_Controller {
 		$nivel = $this->Aspectos_m->traerNivel();
 		$datos = $this->Aspectos_m->traeruno($id);
 		$titulo = "Modificar Aspectos";
-		$this->load->view("Mantenimientos/Aspectos/agregar_v.php",compact("datos","titulo","nivel"));
+		$hijo = "Aspectos";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/Aspectos/agregar_v.php",compact("datos","titulo","nivel","padre","hijo"));
 	}
 
 	public function eliminar($id)

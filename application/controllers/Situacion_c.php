@@ -13,8 +13,9 @@ class Situacion_c extends CI_Controller {
 
 		$datos = $this->Situacion_m->todos();
 
-
-		$this->load->view('Mantenimientos/Situacion/situacion_v',compact("datos"));
+		$hijo = "Situacion";
+		$padre = "Matricula";
+		$this->load->view('Mantenimientos/Situacion/situacion_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -63,8 +64,12 @@ class Situacion_c extends CI_Controller {
 		{
 			$titulo = "Registrar Situacion Laboral";
 			$datos = "";
+			$hijo = "Situacion";
+			$padre = "Matricula";
 			$alumnos = $this->Situacion_m->traerAlumnos();
-			$this->load->view("Mantenimientos/Situacion/agregar_v.php",compact("datos","titulo","alumnos"));
+
+
+			$this->load->view("Mantenimientos/Situacion/agregar_v.php",compact("datos","titulo","alumnos","padre","hijo"));
 		}
 	}
 
@@ -74,8 +79,12 @@ class Situacion_c extends CI_Controller {
 
 		$datos = $this->Situacion_m->traeruno($id);
 		$titulo = "Modificar Situacion Laboral";
+		$hijo = "Situacion";
+		$padre = "Matricula";
 		$alumnos = $this->Situacion_m->traerAlumnos();
-		$this->load->view("Mantenimientos/Situacion/agregar_v.php",compact("datos","alumnos","titulo"));
+
+
+		$this->load->view("Mantenimientos/Situacion/agregar_v.php",compact("datos","alumnos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)

@@ -12,9 +12,9 @@ class TipoS_c extends CI_Controller {
 	{
 
 		$datos = $this->TipoS_m->todos();
-
-
-		$this->load->view('Mantenimientos/TipoS/tipoS_v',compact("datos"));
+		$hijo = "TipoS";
+		$padre = "Mantenimientos";
+		$this->load->view('Mantenimientos/TipoS/tipoS_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -63,8 +63,9 @@ class TipoS_c extends CI_Controller {
 		{
 			$titulo = "Registrar Tipo De Sangre";
 			$datos = "";
-
-			$this->load->view("Mantenimientos/TipoS/agregar_v.php",compact("datos","titulo"));
+			$hijo = "TipoS";
+		$padre = "Mantenimientos";
+			$this->load->view("Mantenimientos/TipoS/agregar_v.php",compact("datos","titulo","padre","hijo"));
 		}
 	}
 
@@ -74,8 +75,9 @@ class TipoS_c extends CI_Controller {
 
 		$datos = $this->TipoS_m->traeruno($id);
 		$titulo = "Modificar Tipo De Sangre";
-
-		$this->load->view("Mantenimientos/TipoS/agregar_v.php",compact("datos","titulo"));
+		$hijo = "TipoS";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/TipoS/agregar_v.php",compact("datos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)

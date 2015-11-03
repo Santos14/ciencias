@@ -12,9 +12,10 @@ class Nivel_c extends CI_Controller {
 	{
 
 		$datos = $this->Nivel_m->todos();
+		$hijo = "Nivel";
+		$padre = "Mantenimientos";
 
-
-		$this->load->view('Mantenimientos/Nivel/nivel_v',compact("datos"));
+		$this->load->view('Mantenimientos/Nivel/nivel_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -63,8 +64,9 @@ class Nivel_c extends CI_Controller {
 		{
 			$titulo = "Registrar Nivel";
 			$datos = "";
-
-			$this->load->view("Mantenimientos/Nivel/agregar_v.php",compact("datos","titulo"));
+			$hijo = "Nivel";
+		$padre = "Mantenimientos";
+			$this->load->view("Mantenimientos/Nivel/agregar_v.php",compact("datos","titulo","padre","hijo"));
 		}
 	}
 
@@ -74,8 +76,9 @@ class Nivel_c extends CI_Controller {
 
 		$datos = $this->Nivel_m->traeruno($id);
 		$titulo = "Modificar Nivel";
-
-		$this->load->view("Mantenimientos/Nivel/agregar_v.php",compact("datos","titulo"));
+		$hijo = "Nivel";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/Nivel/agregar_v.php",compact("datos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)

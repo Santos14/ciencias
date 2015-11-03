@@ -22,14 +22,13 @@
 		 	return $resultado->result();
 
 		 }
-		/*
-		 public function mostrar()
-		 {
-		 	$result = $this->db->get('usuario');
-		 	// $result = $this->db->get_where('usuario',array("usuario"=>"chanis"));
-		 	return $result->result();
 
-		 }*/
+		 public function tipoMovimiento()
+		 {
+
+		 	$result = $this->db->get_where('tipo_de_movimiento',array("estado"=>"1"));
+		 	return $result->result();
+		 }
 
 		 public function traeruno($id)
 		 {

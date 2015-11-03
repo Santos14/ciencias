@@ -13,15 +13,19 @@ class Cuota_c extends CI_Controller {
 
 		$datos = $this->Cuotas_m->todos();
 		$monto_cobrado = $this->Cuotas_m->monto_cobrado();
+		$hijo = "Cuota";
+		$padre = "Pensiones";
 
-		$this->load->view('Pensiones/Cuotas/cuotas_v',compact("datos","monto_cobrado"));
+		$this->load->view('Pensiones/Cuotas/cuotas_v',compact("datos","monto_cobrado","padre","hijo"));
 	}
 
 	public function cronograma($id,$idcuota)
 	{
 		$montos = $this->Cuotas_m->montos($id);
 		$datos = $this->Cuotas_m->cuotas($id);
-		$this->load->view('Pensiones/Cuotas/cronograma_v',compact("datos","montos","idcuota","id"));
+		$hijo = "Cuota";
+		$padre = "Pensiones";
+		$this->load->view('Pensiones/Cuotas/cronograma_v',compact("datos","montos","idcuota","id","padre","hijo"));
 	}
 
 
@@ -69,8 +73,9 @@ class Cuota_c extends CI_Controller {
 
 		$datos = $this->Cuota_m->traeruno($id);
 		$titulo = "Modificar Tipo De Discapacidad";
-
-		$this->load->view("Mantenimientos/Cuota/agregar_v.php",compact("datos","titulo"));
+		$hijo = "Cuota";
+		$padre = "Pensiones";
+		$this->load->view("Mantenimientos/Cuota/agregar_v.php",compact("datos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)

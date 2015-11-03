@@ -8,11 +8,12 @@
 
 
 		function getList() {
-	        $sql = "SELECT * FROM {$this->table}";
-	        $data = $this->db->query($sql);
-	        $data = $data->result_array();
-	        return $data;
-	    }
+        $sql = "SELECT * FROM {$this->table}";
+        $data = $this->db->query($sql);
+        $data = $data->result_array();
+//         echo "<pre>";print_r($data);exit;
+        return $data;
+    }
 	}
 
 

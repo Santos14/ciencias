@@ -12,7 +12,9 @@ class Matricula_c extends CI_Controller {
 	{
 
 		$datos = $this->Matricula_m->todos();
-		$this->load->view('Matricula/Matricula/matricula_v',compact("datos"));
+		$hijo = "Matricula";
+		$padre = "Matricula";
+		$this->load->view('Matricula/Matricula/matricula_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -65,7 +67,9 @@ class Matricula_c extends CI_Controller {
 			$seccion = $this->Matricula_m->traerSecciones();
 			$grado = $this->Matricula_m->traerGrados();
 			$turno = $this->Matricula_m->traerTurnos();
-			$this->load->view("Matricula/Matricula/agregar_v.php",compact("titulo","alumno","seccion","grado","turno"));
+			$hijo = "Matricula";
+		$padre = "Matricula";
+			$this->load->view("Matricula/Matricula/agregar_v.php",compact("titulo","alumno","seccion","grado","turno","padre","hijo"));
 		}
 	}
 
@@ -79,7 +83,9 @@ class Matricula_c extends CI_Controller {
 		$seccion = $this->Matricula_m->traerSecciones();
 		$grado = $this->Matricula_m->traerGrados();
 		$turno = $this->Matricula_m->traerTurnos();
-		$this->load->view("Matricula/Matricula/editar_v.php",compact("datos","titulo","alumno","seccion","grado","turno"));
+		$hijo = "Matricula";
+		$padre = "Matricula";
+		$this->load->view("Matricula/Matricula/editar_v.php",compact("datos","titulo","alumno","seccion","grado","turno","padre","hijo"));
 	}
 
 	public function eliminar($id)

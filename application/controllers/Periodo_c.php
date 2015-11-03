@@ -11,7 +11,9 @@ class Periodo_c extends CI_Controller {
 	public function index()
 	{
 		$datos = $this->Periodo_m->todos();
-		$this->load->view('Mantenimientos/Periodo/periodo_v',compact("datos"));
+		$hijo = "Periodo";
+		$padre = "Mantenimientos";
+		$this->load->view('Mantenimientos/Periodo/periodo_v',compact("datos","padre","hijo"));
 	}
 
 	public function nuevo()
@@ -58,8 +60,9 @@ class Periodo_c extends CI_Controller {
 		{
 			$titulo = "Registrar Periodo";
 			$datos = "";
-
-			$this->load->view("Mantenimientos/Periodo/agregar_v.php",compact("datos","titulo"));
+			$hijo = "Periodo";
+			$padre = "Mantenimientos";
+			$this->load->view("Mantenimientos/Periodo/agregar_v.php",compact("datos","titulo","padre","hijo"));
 		}
 	}
 
@@ -69,7 +72,9 @@ class Periodo_c extends CI_Controller {
 
 		$datos = $this->Periodo_m->traeruno($id);
 		$titulo = "Modificar Periodo";
-		$this->load->view("Mantenimientos/Periodo/agregar_v.php",compact("datos","titulo"));
+		$hijo = "Periodo";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/Periodo/agregar_v.php",compact("datos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)

@@ -12,9 +12,10 @@ class Area_c extends CI_Controller {
 	{
 
 		$datos = $this->Area_m->todos();
+		$hijo = "Area";
+		$padre = "Mantenimientos";
 
-
-		$this->load->view('Mantenimientos/Area/area_v',compact("datos"));
+		$this->load->view('Mantenimientos/Area/area_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -63,7 +64,9 @@ class Area_c extends CI_Controller {
 		{
 			$titulo = "Registrar Area";
 			$datos = "";
-			$this->load->view("Mantenimientos/Area/agregar_v.php",compact("datos","titulo"));
+			$hijo = "Area";
+			$padre = "Mantenimientos";
+			$this->load->view("Mantenimientos/Area/agregar_v.php",compact("datos","titulo","padre","hijo"));
 		}
 	}
 
@@ -73,7 +76,9 @@ class Area_c extends CI_Controller {
 
 		$datos = $this->Area_m->traeruno($id);
 		$titulo = "Modificar Area";
-		$this->load->view("Mantenimientos/Area/agregar_v.php",compact("datos","titulo"));
+		$hijo = "Area";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/Area/agregar_v.php",compact("datos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)

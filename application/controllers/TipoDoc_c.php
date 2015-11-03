@@ -12,9 +12,10 @@ class TipoDoc_c extends CI_Controller {
 	{
 
 		$datos = $this->TipoDoc_m->todos();
+		$hijo = "TipoDoc";
+		$padre = "Mantenimientos";
 
-
-		$this->load->view('Mantenimientos/TipoDoc/tipoDoc_v',compact("datos"));
+		$this->load->view('Mantenimientos/TipoDoc/tipoDoc_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -63,8 +64,9 @@ class TipoDoc_c extends CI_Controller {
 		{
 			$titulo = "Registrar Tipo De Documento";
 			$datos = "";
-
-			$this->load->view("Mantenimientos/TipoDoc/agregar_v.php",compact("datos","titulo"));
+			$hijo = "TipoDoc";
+		$padre = "Mantenimientos";
+			$this->load->view("Mantenimientos/TipoDoc/agregar_v.php",compact("datos","titulo","padre","hijo"));
 		}
 	}
 
@@ -74,8 +76,9 @@ class TipoDoc_c extends CI_Controller {
 
 		$datos = $this->TipoDoc_m->traeruno($id);
 		$titulo = "Modificar Tipo De Documento";
-
-		$this->load->view("Mantenimientos/TipoDoc/agregar_v.php",compact("datos","titulo"));
+		$hijo = "TipoDoc";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/TipoDoc/agregar_v.php",compact("datos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)

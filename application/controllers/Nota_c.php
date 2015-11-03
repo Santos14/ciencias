@@ -11,67 +11,70 @@ class Nota_c extends CI_Controller {
     }
 
     public function index() {
-
-        $datos = $this->Nota_m->todos();
-        $selectArea = $this->Select(array('id' => 'idarea', 'name' => 'idarea', 'class' => 'form-control', 'table' => '_area where estado = 1', 'code' => '', 'value' => 'idarea', 'option' => 'descripcion'));
-
-        $this->load->view('Academia/Nota/_Index', compact("datos", "selectArea"));
+        $selectArea = $this->Select(array('id' => 'idarea', 'name' => 'idarea', 'class' => "form-control", 'table' => '_area where estado = 1', 'code' => '2', 'value' => 'idarea', 'option' => 'descripcion'));
+        $selecNivel = $this->Select(array('id' => 'idnivel', 'name' => 'idnivel', 'class' => 'form-control', 'table' => 'nivel where estado = 1', 'code' => '', 'value' => 'idnivel', 'option' => 'descripcion'));
+        $selecTurno = $this->Select(array('id' => 'idturno', 'name' => 'idturno', 'class' => 'form-control', 'table' => 'turno where estado = 1', 'code' => '', 'value' => 'idturno', 'option' => 'descripcion'));
+        $padre = "Academica";
+        $hijo = "Nota";
+        $this->load->view('Academia/Nota/_Index', compact("datos", "selectArea", "selecNivel", "selecTurno","padre","hijo"));
     }
 
-    public function modificar($id) {
-
-        $datos = $this->Nota_m->traeruno($id);
-        $titulo = "Modificar Año Lectivo";
-        $this->load->view("Academia/Nota/_Form.php", compact("datos", "titulo"));
+//    public function get_secciones() {
+//        $datos = $this->Nota_m->get_secciones_this_idgrado($_REQUEST);
+//        if ($datos['flag'] > 0) {
+//            $resp = array("resp" => 1, "msg" => $datos['obj']);
+//        } else {
+//            $resp = array("resp" => 0, "msg" => "no se encontraron datos");
+//        }
+//        print_r(json_encode($resp));
+//    }
+    public function get_alumnos_matriculados() {
+        $datos = $this->Nota_m->get_alumnos_matriculados_($_REQUEST);
+        if ($datos['flag'] > 0) {
+            $resp = array("resp" => 1, "msg" => $datos['obj']);
+        } else {
+            $resp = array("resp" => 0, "msg" => "no se encontraron alumnos matriculados");
+        }
+        print_r(json_encode($resp));
     }
 
-    public function nuevo() {
-        if ($this->input->post()) {
-            if ($this->input->post("idanio_lectivo") == "") {
+    public function get_grados() {
+        $datos = $this->Nota_m->get_grados_this_idnivel($_REQUEST);
+        if ($datos['flag'] > 0) {
+            $resp = array("resp" => 1, "msg" => $datos['obj']);
+        } else {
+            $resp = array("resp" => 0, "msg" => "no se encontraron datos");
+        }
+        print_r(json_encode($resp));
+    }
 
-                $r = $this->Nota_m->insertar();
-                if ($r == 1) {
-                    echo '<script>
-								alert("SE INSERTO CORRECTAMENTE");
-							</script>';
-                } else {
-                    echo '<script>
-								alert("ERROR AL INSERTAR AREA");
-							</script>';
-                }
+    public function get_asignaturas() {
+        $datos = $this->Nota_m->get_asignaturas_this_idarea($_REQUEST);
+        if ($datos['flag'] > 0) {
+            $resp = array("resp" => 1, "msg" => $datos['obj']);
+        } else {
+            $resp = array("resp" => 0, "msg" => "no se encontraron datos");
+        }
+        print_r(json_encode($resp));
+    }
+
+    public function get_criterios_and_secciones() {
+        $datos = $this->Nota_m->get_criterios_this_asignatura($_REQUEST);
+        if ($datos['flag'] > 0) {
+            $data_secciones = $this->Nota_m->get_secciones($_REQUEST);
+            if ($data_secciones['flag'] > 0) {
+                $resp = array("resp" => 1, "msg" => array("criterios" => $datos['obj'], "secciones" => $data_secciones['obj']));
             } else {
-                $r = $this->Nota_m->modificar($this->input->post("idanio_lectivo"));
-                if ($r == 1) {
-                    echo '<script>
-								alert("SE MODIFICO CORRECTAMENTE");
-							</script>';
-                } else {
-                    echo '<script>
-								alert("ERROR AL MODIFICAR AREA");
-							</script>';
-                }
+                $resp = array("resp" => 0, "msg" => "Se encontraron criterios mas no secciones");
             }
-            redirect(base_url() . "Nota_c", "refresh");
         } else {
-            $titulo = "Registrar Año Lectivo";
-            $datos = "";
-            $this->load->view("Academia/Nota/_Form.php", compact("datos", "titulo"));
+            $resp = array("resp" => 0, "msg" => "no se encontraron criterios");
         }
+        print_r(json_encode($resp));
     }
 
-    public function eliminar($id) {
+    public function Guardar_notas() {
 
-        $r = $this->Nota_m->eliminar($id);
-        if ($r == 1) {
-            echo '<script>
-						alert("SE ELIMINO CORRECTAMENTE");
-					</script>';
-        } else {
-            echo '<script>
-						alert("ERROR AL ELIMINAR AREA");
-					</script>';
-        }
-        redirect(base_url() . "Nota_c", "refresh");
     }
 
 }

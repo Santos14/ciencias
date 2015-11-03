@@ -13,8 +13,9 @@ class Seccion_c extends CI_Controller {
 
 		$datos = $this->Seccion_m->todos();
 
-
-		$this->load->view('Mantenimientos/Seccion/seccion_v',compact("datos"));
+		$hijo = "Seccion";
+		$padre = "Mantenimientos";
+		$this->load->view('Mantenimientos/Seccion/seccion_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -64,7 +65,9 @@ class Seccion_c extends CI_Controller {
 			$titulo = "Registrar Seccion";
 			$datos = "";
 
-			$this->load->view("Mantenimientos/Seccion/agregar_v.php",compact("datos","titulo"));
+			$hijo = "Seccion";
+			$padre = "Mantenimientos";
+			$this->load->view("Mantenimientos/Seccion/agregar_v.php",compact("datos","titulo","padre","hijo"));
 		}
 	}
 
@@ -75,7 +78,9 @@ class Seccion_c extends CI_Controller {
 		$datos = $this->Seccion_m->traeruno($id);
 		$titulo = "Modificar Seccion";
 
-		$this->load->view("Mantenimientos/Seccion/agregar_v.php",compact("datos","titulo"));
+		$hijo = "Seccion";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/Seccion/agregar_v.php",compact("datos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)

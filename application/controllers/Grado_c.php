@@ -12,9 +12,11 @@ class Grado_c extends CI_Controller {
 	{
 
 		$datos = $this->Grado_m->todos();
+		$hijo = "Grado";
+		$padre = "Mantenimientos";
 
 
-		$this->load->view('Mantenimientos/Grado/grado_v',compact("datos"));
+		$this->load->view('Mantenimientos/Grado/grado_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -64,7 +66,9 @@ class Grado_c extends CI_Controller {
 			$titulo = "Registrar Grado";
 			$datos = "";
 			$nivel = $this->Grado_m->traerNiveles();
-			$this->load->view("Mantenimientos/Grado/agregar_v.php",compact("datos","titulo","nivel"));
+			$hijo = "Grado";
+			$padre = "Mantenimientos";
+			$this->load->view("Mantenimientos/Grado/agregar_v.php",compact("datos","titulo","nivel","padre","hijo"));
 		}
 	}
 

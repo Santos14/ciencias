@@ -16,8 +16,10 @@ class Horario_c extends CI_Controller {
 
 		$datos = $this->Nivel_m->todos();
 		$secciones = $this->Seccion_m->todos();
+		$hijo = "Horario";
+		$padre = "Asistencia";
 
-		$this->load->view('Horarios/index',compact('datos','secciones'));
+		$this->load->view('Horarios/index',compact('datos','secciones',"padre","hijo"));
 	}
 
 	public function cursosajax(){
@@ -35,7 +37,7 @@ class Horario_c extends CI_Controller {
 
 		foreach ($iddia as $key => $value) {
 			if(($value == "") || ($idhora[$key] == "") || ($idcurso[$key] == "")){
-				
+
 			}else{
 				//echo $idhora[$key];exit();
 				$this->Horario_m->grabar((int)$value,(int)$idhora[$key],(int)$idcurso[$key]);
@@ -47,10 +49,10 @@ class Horario_c extends CI_Controller {
 	public function listgrado(){
 		$id = $_POST["id"];
 		$datos = $this->Grado_m->pornivel($id);
-		
+
 		$html = "";
 		foreach ($datos as $key => $value) {
-			$html .= "<option value='$value->idgrado' >$value->descripcion</option>";	
+			$html .= "<option value='$value->idgrado' >$value->descripcion</option>";
 		}
 
 		echo $html;

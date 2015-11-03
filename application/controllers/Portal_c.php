@@ -11,6 +11,9 @@ class Portal_c extends CI_Controller {
 	public function Index()
 	{
 
+
+
+
 		// $listausuarios = $this->Usuarios_model->mostrar();
 		// $saludo = "saludo";
 		// $despedida = "chau";

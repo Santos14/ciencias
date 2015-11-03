@@ -83,8 +83,15 @@ $(document).ready(function(){
                    </li>
                    <li><a href="<?php echo base_url(); ?>Portal_c/vistas/multimedia">Multimedia</a>
                    </li>
-                <li><i id="candado" class="fa fa-lock fa-lg" style="color: white;"></i>
+
+                   <?php if(isset($_SESSION["usuario"])){?>
+                    <li><a href="<?php echo base_url(); ?>Principal_c">Sistema</a>
+                   </li>
+                   <?php }?>
+
+                         <li><i id="candado" class="fa fa-lock fa-lg" style="color: white;"></i>
                 </li>
+
               </ul>
             </nav>
           </section>

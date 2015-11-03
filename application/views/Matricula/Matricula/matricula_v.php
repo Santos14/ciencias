@@ -17,92 +17,7 @@
     </style>
 </head>
 <body class="no-skin" style="background:#f8f8f8 !important;">
-        <div id="navbar" class="navbar navbar-default" style="width: 1241px;padding-left: 0px;border-left-width: 100px; height: 45px;">
-            <script type="text/javascript">
-                try{ace.settings.check('navbar' , 'fixed')}catch(e){}
-            </script>
 
-            <div class="navbar-container" id="navbar-container">
-                <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
-                    <span class="sr-only">Toggle sidebar</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="navbar-header pull-left">
-                    <a href="index.html#" class="navbar-brand" style="padding-top: 5px;padding-bottom: 5px;">
-                            <img src="<?php echo base_url(); ?>public/img/portal2.png" style="padding-left: 21px;width: 400px;height: 30px;">
-                    </a>
-                </div>
-
-                <div class="navbar-buttons navbar-header pull-right" role="navigation">
-                    <ul class="nav ace-nav">
-                        <li class="purple">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#" style="left: 8px;">
-                                <i class="ace-icon fa fa-bell icon-animated-bell"></i>
-                                <span class="badge badge-important">8</span>
-                            </a>
-
-                            <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
-                                <li class="dropdown-header"><i class="ace-icon fa fa-exclamation-triangle"></i>8 Notifications</li>
-                                <!-- NOTIFICACIONESSSS -->
-                                <li class="dropdown-content">
-                                    <ul class="dropdown-menu dropdown-navbar navbar-pink">
-                                        <li>
-                                            <a href="index.html#">
-                                                <div class="clearfix">
-                                                    <span class="pull-left"><i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>New Comments
-                                                    </span>
-                                                    <span class="pull-right badge badge-info">+12</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li><a href="index.html#"><i class="btn btn-xs btn-primary fa fa-user"></i>Bob just signed up as an editor ...</a></li>
-                                        <li>
-                                            <a href="index.html#">
-                                                <div class="clearfix">
-                                                    <span class="pull-left"><i class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>New Orders</span>
-                                                    <span class="pull-right badge badge-success">+8</span>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="index.html#">
-                                                <div class="clearfix">
-                                                    <span class="pull-left"><i class="btn btn-xs no-hover btn-info fa fa-twitter"></i>Followers</span>
-                                                    <span class="pull-right badge badge-info">+11</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li class="dropdown-footer">
-                                    <a href="index.html#">See all notifications<i class="ace-icon fa fa-arrow-right"></i></a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="light-blue" style="border-left-width: 0px;padding-left: 1px;">
-                            <a data-toggle="dropdown" href="index.html#" class="dropdown-toggle"  style="left: 8px;">
-                                <img class="nav-user-photo" src="<?php echo base_url(); ?>public/img/user.jpg" alt="Jason's Photo" />
-                                <span class="user-info">Bienvenido</span>
-                                <i class="ace-icon fa fa-caret-down"></i>
-                            </a>
-                            <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                                <li><a href="index.html#"><i class="ace-icon fa fa-power-off"></i>Cerrar Sesión</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div><!-- /.navbar-container -->
-        </div>
-
-        <div class="main-container" id="main-container"style="width: 931px;margin-left: 100px; height: 500px;">
-            <script type="text/javascript">
-                try{ace.settings.check('main-container' , 'fixed')}catch(e){}
-            </script>
           <?php include("includes/menu.inc") ; ?>
 
             <div class="main-content" style="width: 950px; background:#f8f8f8;">
@@ -184,3 +99,123 @@
             })
     </script>
 
+     <script>
+            var criterios;
+            generar_select_secciones = function(data) {
+                html = "";
+                html = '<select id="idseccion" name="idseccion" >';
+                html += '<option>Seleccione...</option>';
+                $.each(data, function(i, val) {
+                    html += '<option value=' + val['idseccion'] + ' > ' + val['descripcion'] + '</option>';
+                });
+                html += '</select>'
+                return html
+            }
+            generar_select_grados = function(data) {
+                html = "";
+                html = '<select id="idgrado" name="idgrado" >';
+                html += '<option>Seleccione...</option>';
+                $.each(data, function(i, val) {
+                    html += '<option value=' + val['idgrado'] + ' > ' + val['descripcion'] + '</option>';
+                });
+                html += '</select>'
+                return html
+            }
+            generar_select_asignaturas = function(data) {
+                html = "";
+                html = '<select id="idasignatura" name="idasignatura" >';
+                html += '<option>Seleccione...</option>';
+                $.each(data, function(i, val) {
+                    html += '<option value=' + val['idasignatura'] + ' > ' + val['descripcion'] + '</option>';
+                });
+                html += '</select>'
+                return html
+            }
+            generar_cuadro_de_notas = function() {
+                console.log("criterios");
+                console.log(criterios);
+                htmlCabecera = "";
+                html = "";
+                htmlCabecera = "<tr><th style='width: 40%;'>Alumno</th>";
+                $.each(criterios, function(i, valx) {
+                     htmlCabecera += "<th>"+valx['descripcion']+"</th>";
+                });
+
+                htmlCabecera += "</tr>";
+
+                $.post("Nota_c/get_alumnos_matriculados", "idseccion=" + $("#idseccion").val() + "&idgrado=" + $("#idgrado").val() + "&idturno=" + $("#idturno").val(), function(data) {
+                    alumnos = data.msg;
+                    $.each(alumnos, function(i, val) {
+                        html += "<tr><td>" + val['nombres'] + " " + val['apellido_paterno'] + " " + val['apellido_materno'] + "</td>";
+                        $.each(criterios, function(i, val2) {
+                            html += "<td><input type='text' style='width:30px;' name='nota[" + val2['idcriterio'] + "]'></td>";
+                        });
+
+                        html += "</tr>";
+                    });
+                    $("#t_notas thead").html(htmlCabecera);
+                    $("#t_notas tbody").html(html);
+                }, 'json');
+
+
+
+            }
+            enviar_notas = function() {
+                str = $("#frm").serialize();
+                $.post("Nota_c/Guardar_notas", str, function() {
+
+                }, 'json');
+            }
+            $(function() {
+                $("#idnivel").change(function() {
+                    $.post("Nota_c/get_grados", "idnivel=" + $(this).val(), function(data) {
+                        if (data.resp == 1) {
+                            html = generar_select_grados(data.msg);
+                            $("#idgrado").html(html)
+                        } else {
+                            $("#idgrado").html('<option value=" ">Seleccione...</option>');
+                        }
+                    }, 'json');
+                });
+                $("#idgrado").change(function() {
+
+                });
+                $("#idarea").change(function() {
+                    $("#t_notas tbody").html('');
+                    $.post("Nota_c/get_asignaturas", "idarea=" + $(this).val(), function(data) {
+                        if (data.resp == 1) {
+                            html = generar_select_asignaturas(data.msg);
+                            $("#idasignatura").html(html)
+                        } else {
+                            $("#idasignatura").html('<option value=" ">Seleccione...</option>');
+                        }
+                    }, 'json');
+                });
+
+                $("#idasignatura").change(function() {
+                    idgrado = $("#idgrado").val();
+                    $.post("Nota_c/get_criterios_and_secciones", "idasignatura=" + $(this).val() + "&idgrado=" + idgrado, function(data) {
+                        if (data.resp == 1) {
+                            criterios = data.msg.criterios;
+                            var secciones = data.msg.secciones;
+                            console.log(criterios);
+                            console.log(secciones);
+                            html = generar_select_secciones(secciones)
+                            $("#idseccion").html(html);
+
+//                            $("#t_notas tbody").html(generar_cuadro_de_notas(data.msg));
+                        } else {
+                            $("#idseccion").html('<option value=" ">Seleccione...</option>');
+                            $("#t_notas tbody").html('');
+                        }
+                    }, 'json');
+                });
+                $("#idseccion").change(function() {
+                    $("#info").html("CURSO : " + $("#idasignatura  option:selected").text() + " EN EL PERIODO :");
+                   htmlCuadro = generar_cuadro_de_notas();
+                 console.log(htmlCuadro['htmlCabecera']);
+                });
+            })
+
+
+        </script>

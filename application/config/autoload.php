@@ -52,7 +52,21 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database');
+@$ini_array3 = parse_ini_file("config.ini");
+
+//print_r($ini_array);
+//exit();
+
+$host3 = $ini_array3["host"];
+//print $host;exit();
+
+if(empty($host3)){
+	$autoload['libraries'] = array('');
+}else{
+	$autoload['libraries'] = array('database');
+}
+
+
 
 
 /*

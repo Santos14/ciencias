@@ -13,8 +13,10 @@ class Cargo_c extends CI_Controller {
 
 		$datos = $this->Cargo_m->todos();
 
+		$hijo = "Cargo";
+		$padre = "Mantenimientos";
 
-		$this->load->view('Mantenimientos/Cargo/cargo_v',compact("datos"));
+		$this->load->view('Mantenimientos/Cargo/cargo_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -63,8 +65,9 @@ class Cargo_c extends CI_Controller {
 		{
 			$titulo = "Registrar Cargo";
 			$datos = "";
-
-			$this->load->view("Mantenimientos/Cargo/agregar_v.php",compact("datos","titulo"));
+			$hijo = "Cargo";
+			$padre = "Mantenimientos";
+			$this->load->view("Mantenimientos/Cargo/agregar_v.php",compact("datos","titulo","padre","hijo"));
 		}
 	}
 
@@ -74,8 +77,9 @@ class Cargo_c extends CI_Controller {
 
 		$datos = $this->Cargo_m->traeruno($id);
 		$titulo = "Modificar Cargo";
-
-		$this->load->view("Mantenimientos/Cargo/agregar_v.php",compact("datos","titulo"));
+		$hijo = "Cargo";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/Cargo/agregar_v.php",compact("datos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)

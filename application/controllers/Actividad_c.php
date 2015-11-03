@@ -12,9 +12,9 @@ class Actividad_c extends CI_Controller {
 	{
 
 		$datos = $this->Actividad_m->todos();
-
-
-		$this->load->view('Mantenimientos/Actividad/actividad_v',compact("datos"));
+		$hijo = "Actividad";
+		$padre = "Mantenimientos";
+		$this->load->view('Mantenimientos/Actividad/actividad_v',compact("datos","hijo","padre"));
 	}
 
 
@@ -63,8 +63,10 @@ class Actividad_c extends CI_Controller {
 		{
 			$titulo = "Registrar Actividad";
 			$datos = "";
+			$hijo = "Actividad";
+			$padre = "Mantenimientos";
 			$aspectos = $this->Actividad_m->traerAspectos();
-			$this->load->view("Mantenimientos/Actividad/agregar_v.php",compact("datos","titulo","aspectos"));
+			$this->load->view("Mantenimientos/Actividad/agregar_v.php",compact("datos","titulo","aspectos","padre","hijo"));
 		}
 	}
 
@@ -75,7 +77,9 @@ class Actividad_c extends CI_Controller {
 		$datos = $this->Actividad_m->traeruno($id);
 		$titulo = "Modificar Actividad";
 		$aspectos = $this->Actividad_m->traerAspectos();
-		$this->load->view("Mantenimientos/Actividad/agregar_v.php",compact("datos","aspectos","titulo"));
+		$hijo = "Actividad";
+		$padre = "Mantenimientos";
+		$this->load->view("Mantenimientos/Actividad/agregar_v.php",compact("datos","aspectos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)

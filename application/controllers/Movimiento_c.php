@@ -12,9 +12,10 @@ class Movimiento_c extends CI_Controller {
 	{
 
 		$datos = $this->Movimiento_m->todos();
+		$hijo = "Movimiento";
+		$padre = "Pensiones";
 
-
-		$this->load->view('Pensiones/Movimiento/movimiento_v',compact("datos"));
+		$this->load->view('Pensiones/Movimiento/movimiento_v',compact("datos","padre","hijo"));
 	}
 
 
@@ -25,7 +26,10 @@ class Movimiento_c extends CI_Controller {
 
 			$titulo = "Registrar Movimiento";
 			$concepto = $this->Movimiento_m->traerConceptos();
-			$this->load->view("Pensiones/Movimiento/agregar_v.php",compact("concepto","titulo"));
+			$hijo = "Movimiento";
+			$padre = "Pensiones";
+			$tipoMovimiento = $this->Movimiento_m->tipoMovimiento();
+			$this->load->view("Pensiones/Movimiento/agregar_v.php",compact("concepto","titulo","padre","hijo","tipoMovimiento"));
 
 	}
 
@@ -56,8 +60,9 @@ class Movimiento_c extends CI_Controller {
 
 		$datos = $this->Movimiento_m->traeruno($id);
 		$titulo = "Modificar Tipo De Discapacidad";
-
-		$this->load->view("Mantenimientos/Movimiento/agregar_v.php",compact("datos","titulo"));
+		$hijo = "Movimiento";
+		$padre = "Pensiones";
+		$this->load->view("Mantenimientos/Movimiento/agregar_v.php",compact("datos","titulo","padre","hijo"));
 	}
 
 	public function eliminar($id)
